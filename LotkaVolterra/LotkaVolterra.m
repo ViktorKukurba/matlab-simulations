@@ -22,7 +22,7 @@ function varargout = LotkaVolterra(varargin)
 
 % Edit the above text to modify the response to help LotkaVolterra
 
-% Last Modified by GUIDE v2.5 17-Jul-2015 23:39:44
+% Last Modified by GUIDE v2.5 18-Jul-2015 14:25:16
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -58,6 +58,9 @@ handles.output = hObject;
 % Update handles structure
 guidata(hObject, handles);
 
+axes(handles.axes5);
+imshow('ModelLV2.png');
+
 % UIWAIT makes LotkaVolterra wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 
@@ -79,6 +82,7 @@ function modeling_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
+
 t1 = str2double(get(handles.startInput, 'string'));
 t2 = str2double(get(handles.endInput, 'string'));
 
@@ -90,34 +94,37 @@ b = str2double(get(handles.bKoef, 'string'));
 c = str2double(get(handles.cKoef, 'string'));
 d = str2double(get(handles.dKoef, 'string'));
 
-[times, values] = GenerateMarkovChain(t1, t2);
-axes(handles.axes4);
+perturbKoef = str2double(get(handles.perturbKoef, 'string'));
 
-plot(times, values);
+[times, values] = GenerateMarkovChain(t1, t2);
+[timesStep, valuesStep] = StepMarkovData(times, values);
+axes(handles.axes4);
+plot(timesStep, valuesStep);
 
 j = str2double(get(handles.jKoef, 'string'));
 
-
-
 alpha = str2double(get(handles.alpha, 'string'));
 axes(handles.axes1);
-[t0,y0] = ModelLV([t1 t2],[n p],a,b,c,d,j);
-%plot(t0, y0);
-[t,y] = PeretubedModelLV(times, values, n, p, a,b,c,d,j);
-t = transpose(t);
-y = transpose(y);
-plot(t0, y0, t,y);
+[tModel,yModel] = ModelLV([t1 t2],[n p],a,b,c,d,j);
+[tPerturbedModel,yPerturbedModel] = PeretubedModelLV(times, values, n, p, a,b,c,d,j, perturbKoef);
+tPerturbedModel = transpose(tPerturbedModel);
+yPerturbedModel = transpose(yPerturbedModel);
+plot(tModel, yModel, tPerturbedModel,yPerturbedModel);
 
-[t2,y2] = SAP_ModelLV([t1 t2],[n p],a,b,c,d,alpha,j);
+[tSAPModel,ySAPModel] = SAP_ModelLV([t1 t2],[n p],a,b,c,d,alpha,j);
+[tSAPPModel,ySAPPModel] = SAP_PeretubedModelLV(times, values, n, p,a,b,c,d,alpha,j, perturbKoef);
 axes(handles.axes2);
 
-plot(t2,y2);
+plot(tSAPModel,ySAPModel,tSAPPModel,ySAPPModel);
 
 axes(handles.axes3);
 
-y3 = squeeze(y(:,2));
-y4 = squeeze(y(:,1));
-plot(y3,y4);
+yM1 = squeeze(yModel(:,2));
+yM2 = squeeze(yModel(:,1));
+yPM1 = squeeze(yPerturbedModel(:,2));
+yPM2 = squeeze(yPerturbedModel(:,1));
+
+plot(yM1,yM2, yPM1,yPM2);
 
 
 %handles.axes1; %Subsequent commands draw on axes1.
@@ -387,3 +394,33 @@ function popupmenu1_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+
+function perturbKoef_Callback(hObject, eventdata, handles)
+% hObject    handle to perturbKoef (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of perturbKoef as text
+%        str2double(get(hObject,'String')) returns contents of perturbKoef as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function perturbKoef_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to perturbKoef (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes during object creation, after setting all properties.
+function text13_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to text13 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called

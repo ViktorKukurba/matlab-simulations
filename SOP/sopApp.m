@@ -22,7 +22,7 @@ function varargout = sopApp(varargin)
 
 % Edit the above text to modify the response to help sopApp
 
-% Last Modified by GUIDE v2.5 19-Jul-2015 19:43:03
+% Last Modified by GUIDE v2.5 21-Jul-2015 00:39:17
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -105,12 +105,22 @@ function modelling_Callback(hObject, eventdata, handles)
 t1 = str2double(get(handles.startInput, 'string'));
 t2 = str2double(get(handles.endInput, 'string'));
 
+a = str2double(get(handles.aSOP, 'string'));
+b = str2double(get(handles.bSOP, 'string'));
+u0 = str2double(get(handles.uStart, 'string'));
+
 
 [t, y] = GenerateMarkovChain(t1,t2);
 
 [tStep, yStep] = StepMarkovData(t, y);
 
-[tSOP, ySOP] = sop([t1 t2], 1, 2);
+[tSOP, ySOP] = SolveSOP(t, y, a, b, u0);
+
+axes(handles.axes3);
+
+fh = @(u) u^2;
+fplot(fh,[0,500]);
+
 
 axes(handles.axes1);
 plot(tStep, yStep);
@@ -131,6 +141,75 @@ function endInput_Callback(hObject, eventdata, handles)
 % --- Executes during object creation, after setting all properties.
 function endInput_CreateFcn(hObject, eventdata, handles)
 % hObject    handle to endInput (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function aSOP_Callback(hObject, eventdata, handles)
+% hObject    handle to aSOP (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of aSOP as text
+%        str2double(get(hObject,'String')) returns contents of aSOP as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function aSOP_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to aSOP (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function bSOP_Callback(hObject, eventdata, handles)
+% hObject    handle to bSOP (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of bSOP as text
+%        str2double(get(hObject,'String')) returns contents of bSOP as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function bSOP_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to bSOP (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function uStart_Callback(hObject, eventdata, handles)
+% hObject    handle to uStart (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of uStart as text
+%        str2double(get(hObject,'String')) returns contents of uStart as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function uStart_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to uStart (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 

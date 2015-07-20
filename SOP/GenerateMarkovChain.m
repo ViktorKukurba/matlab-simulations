@@ -2,9 +2,8 @@ function [ time, valueX ] = GenerateMarkovChain(startTime, endTime)
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
 states = [-1 0 1];
-time = [0];
-valueX = [0];
-result = [0];
+time = [];
+valueX = [];
 pd = makedist('Exponential');
 timeVal = pdf(pd, 1);
 cummulativeTime = startTime;

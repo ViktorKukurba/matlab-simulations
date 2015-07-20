@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="1799986141" file="/Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra.prj" location="/Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra" name="LotkaVolterra" preferred-package-location="/Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra/for_redistribution" preferred-package-type="package.type.app" target="target.ezdeploy.standalone" target-name="MATLAB Compiler for Standalone Applications">
+  <configuration build-checksum="3413015710" file="/Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra.prj" location="/Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra" name="LotkaVolterra" preferred-package-location="/Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra/for_redistribution" preferred-package-type="package.type.app" target="target.ezdeploy.standalone" target-name="MATLAB Compiler for Standalone Applications">
     <param.appname>LotkaVolterra</param.appname>
     <param.icon />
     <param.icons />
@@ -23,8 +23,8 @@
     <param.server.readme>${PROJECT_ROOT}/LotkaVolterra/for_testing/readme.txt</param.server.readme>
     <param.target.type>subtarget.standalone</param.target.type>
     <param.support.packages />
-    <param.web.mcr>true</param.web.mcr>
-    <param.package.mcr>false</param.package.mcr>
+    <param.web.mcr>false</param.web.mcr>
+    <param.package.mcr>true</param.package.mcr>
     <param.no.mcr>false</param.no.mcr>
     <param.web.mcr.name>MyAppInstaller_web</param.web.mcr.name>
     <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
@@ -49,8 +49,6 @@
       <param.server.readme />
       <param.target.type />
       <param.support.packages />
-      <param.web.mcr />
-      <param.package.mcr />
       <param.no.mcr />
       <param.web.mcr.name />
       <param.package.mcr.name />

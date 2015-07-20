@@ -4,7 +4,7 @@ ant:
   <mkdir dir="/Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra/for_testing" />
 </ant>
 mcc -o LotkaVolterra -W WinMain:LotkaVolterra -T link:exe -d /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra/for_testing -v /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra.m -a /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/GenerateMarkovChain.m -a /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra.fig -a /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/ModelLV.m -a /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/ModelLV.png -a /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/ModelLV2.png -a /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/PeretubedModelLV.m -a /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/SAP_ModelLV.m -a /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/SAP_PeretubedModelLV.m -a /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/StepMarkovData.m 
-2015-07-18 16:14:55.292 mcc[40774:400829] [JRSAppKitAWT markAppIsDaemon]: Process manager already initialized: can't fully enable headless mode.
+2015-07-19 00:35:09.277 mcc[41189:435710] [JRSAppKitAWT markAppIsDaemon]: Process manager already initialized: can't fully enable headless mode.
 Compiler version: 5.1 (R2014a)
 Dependency analysis by REQUIREMENTS.
 [Warning: Requirements cannot analyze P-code unless the user provides a
@@ -27,24 +27,25 @@ Parsing file "/Applications/MATLAB_R2014a.app/toolbox/compiler/deploy/deployprin
 Parsing file "/Applications/MATLAB_R2014a.app/toolbox/compiler/deploy/printdlg.m"
 	(Referenced from: "Compiler Command Line").
 Deleting 9 temporary MEX authorization files.
-Removing: '/tmp/09f46LiprRf_40774.auth'.
-Removing: '/tmp/09f46HRTqN9_40774.auth'.
-Removing: '/tmp/09f46uBlver_40774.auth'.
-Removing: '/tmp/09f46VfHMCM_40774.auth'.
-Removing: '/tmp/09f463N3gry_40774.auth'.
-Removing: '/tmp/09f46UnQvUD_40774.auth'.
-Removing: '/tmp/09f46eQH6xA_40774.auth'.
-Removing: '/tmp/09f46POaiBi_40774.auth'.
-Removing: '/tmp/09f46EBnAyE_40774.auth'.
+Removing: '/tmp/0a0e5QvCmfi_41189.auth'.
+Removing: '/tmp/0a0e5HaBI41_41189.auth'.
+Removing: '/tmp/0a0e59OdBwi_41189.auth'.
+Removing: '/tmp/0a0e5PwbVps_41189.auth'.
+Removing: '/tmp/0a0e5xcs9k9_41189.auth'.
+Removing: '/tmp/0a0e5BHAxI7_41189.auth'.
+Removing: '/tmp/0a0e5xxLIRy_41189.auth'.
+Removing: '/tmp/0a0e5r7JIo2_41189.auth'.
+Removing: '/tmp/0a0e5rbPf7S_41189.auth'.
 Generating file "/Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra/for_testing/readme.txt".
 Generating file "/Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra/for_testing/run_LotkaVolterra.sh".
 Packaging...
 Adding custom icon /Applications/MATLAB_R2014a.app/toolbox/compiler/Resources/default_icon.icns to /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra/for_testing/LotkaVolterra.app.
 Creating the bundle...
-Copying /Applications/MATLAB_R2014a.app/toolbox/compiler/maci64/setup.app to /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra/for_redistribution/MyAppInstaller_web.app.
-Copying /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra/for_redistribution/bundle.zip to /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra/for_redistribution/MyAppInstaller_web.app/Contents/Resources/bundle.zip.
-Copying /Applications/MATLAB_R2014a.app/toolbox/compiler/Resources/default_splash.png to /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra/for_redistribution/MyAppInstaller_web.app/Contents/Resources/splash.png.
-Copying /Applications/MATLAB_R2014a.app/toolbox/compiler/Resources/default_icon.icns to /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra/for_redistribution/MyAppInstaller_web.app/Contents/Resources/installer.icns.
-Web based installer created at /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra/for_redistribution/MyAppInstaller_web.app.
-Packaging complete.
 Source '/Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra/for_testing/LotkaVolterra.app' exists but is a directory
+Copying /Applications/MATLAB_R2014a.app/toolbox/compiler/maci64/setup.app to /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra/for_redistribution/MyAppInstaller_mcr.app.
+Copying /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra/for_redistribution/bundle.zip to /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra/for_redistribution/MyAppInstaller_mcr.app/Contents/Resources/bundle.zip.
+Copying /Applications/MATLAB_R2014a.app/toolbox/compiler/Resources/default_splash.png to /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra/for_redistribution/MyAppInstaller_mcr.app/Contents/Resources/splash.png.
+Copying /Applications/MATLAB_R2014a.app/toolbox/compiler/Resources/default_icon.icns to /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra/for_redistribution/MyAppInstaller_mcr.app/Contents/Resources/installer.icns.
+Copying /Users/viktor/.installAgent8.3_maci64/InstallAgent.zip to /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra/for_redistribution/MyAppInstaller_mcr.app/Contents/Resources/InstallAgent.zip.
+Self contained installer created at /Users/viktor/Workspace/Projects/GitHub/matlab-simulations/LotkaVolterra/LotkaVolterra/for_redistribution/MyAppInstaller_mcr.app.
+Packaging complete.

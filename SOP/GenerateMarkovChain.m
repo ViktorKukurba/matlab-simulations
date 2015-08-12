@@ -1,7 +1,6 @@
-function [ time, valueX ] = GenerateMarkovChain(startTime, endTime)
+function [ time, valueX ] = GenerateMarkovChain(startTime, endTime, states)
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
-states = [-1 0 1];
 time = [];
 valueX = [];
 pd = makedist('Exponential');
@@ -11,14 +10,15 @@ cummulativeTime = startTime;
 while endTime>cummulativeTime
 
 r1 = unifrnd(0,1);
+len = length(states);
 
- if r1 < 1/3
-     state = -1;
- elseif r1 < 2/3
-     state = 0;
- else
-     state = 1;
- end
+for i = 1:len
+val = i/len;
+if r1 < val
+    state = states(i);
+    break;
+end
+end
  cummulativeTime = cummulativeTime + timeVal();
  time = [time, cummulativeTime];
  valueX = [valueX, state];

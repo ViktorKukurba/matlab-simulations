@@ -120,9 +120,9 @@ list = get(handles.functionsList,'String');
 regFunc = list{index_selected};
 
 if index_selected == 3
+    func = strrep(regFunc, 'u', num2str(u0));
     psoFunc = strrep(regFunc, 'a_m', get(handles.a_m, 'string'));
-    psoFunc = strrep(psoFunc, 'b_m', get(handles.b_m, 'string'));
-    func = strrep(psoFunc, 'u', num2str(u0));
+    psoFunc = strrep(regFunc, 'b_m', get(handles.b_m, 'string'));
 end
 
 
@@ -130,9 +130,9 @@ end
 
 [tStep, yStep] = StepMarkovData(t, y);
 
-[tFunc, uFunc] = GetFunction(func, t, y,index_selected);
+[tFunc, uFunc] = GetFunction(regFunc, t, y,index_selected);
 
-[tSOP, ySOP, ttSOP, yySOP] = SolveSOP(psoFunc, t, y, a, b, u0, isMin);
+[tSOP, ySOP, ttSOP, yySOP] = SolveSOP(regFunc, t, y, a, b, u0, isMin);
 
 axes(handles.axes1);
 plot(tStep, yStep);
